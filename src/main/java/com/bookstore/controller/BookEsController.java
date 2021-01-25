@@ -15,10 +15,12 @@ import java.util.List;
  */
 @RestController
 @Slf4j
-public class BookController {
+public class BookEsController {
     @Autowired
     private BookService bookService;
-
+    /**
+     *根据搜索内容查询相关的书籍
+     */
     @GetMapping("/bookQuery/{keyword}")
     public List queryBook(@PathVariable(name = "keyword") String keyword) throws Exception {
         /*当查询为空时返回全部书籍信息*/
@@ -29,11 +31,9 @@ public class BookController {
         List list = bookService.queryDocument(keyword);
         return list;
     }
-    @GetMapping("/booktest")
-    public String booktest(){
-        log.info("进入了booktest");
-        return "hello world!";
-    }
+    /**
+     *查询全部书籍
+     */
     @GetMapping("/bookQueryAll")
     public List bookQueryAll() throws Exception {
         log.info("进入了bookQueryAll");

@@ -15,13 +15,4 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 @SpringBootTest
 class BookRepositoryTest {
-    @Autowired
-    private BookRepository bookRepository;
-    @Test
-    void test(){
-        List<Book> all = bookRepository.findAll();
-        for (Book book : all) {
-            System.out.println(book);
-        }
-    }
 }
